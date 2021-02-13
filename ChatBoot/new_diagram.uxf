@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6</x>
+      <y>0</y>
+      <w>516</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>com.chat.models::Deuda
+--
+-suministro: String
+-tarifa: BigDecimal
+-nombre: String
+-calle: String
+-mesDeuda: BigDecimal
+-saldo: BigDecimal
+-cedula: String
+--
++Deuda(): ctor
++Deuda(String suministro, BigDecimal tarifa, String nombre, String calle, BigDecimal mesDeuda, BigDecimal saldo, String cedula): ctor
++getSuministro(): String
++setSuministro(String suministro): void
++getTarifa(): BigDecimal
++setTarifa(BigDecimal tarifa): void
++getNombre(): String
++setNombre(String nombre): void
++getCalle(): String
++setCalle(String calle): void
++getSaldo(): BigDecimal
++setSaldo(BigDecimal saldo): void
++getCedula(): String
++setCedula(String cedula): void
++getMesDeuda(): BigDecimal
++setMesDeuda(BigDecimal mesDeuda): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>0</y>
+      <w>372</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>com.chat.controllers::DeudaControlador
+--
+-logger = LoggerFactory.getLogger(DeudaControlador.class): Logger
+-chatService: ChatService
+--
++DeudaControlador(ChatService chatService): ctor
++obtener(): List&lt;Deuda&gt;
++obtenerDeudaById(@RequestBody @Validated SolicitudSumistro solicitudSuministro): Deuda
++obtenerDeuda(@PathVariable(value = "suministro") String suministro): Deuda
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6</x>
+      <y>270</y>
+      <w>174</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>com.chat.models::SolicitudSumistro
+--
+-suministro: String
+--
++SolicitudSumistro(): ctor
++SolicitudSumistro(String suministro): ctor
++getSuministro(): String
++setSuministro(String suministro): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>270</y>
+      <w>234</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>com.chat.services::ChatService
+--
+-chatRepositorio: ChatRepository
+--
++ChatService(ChatRepository chatRepositorio): ctor
++obtenerBySuministro(String suministro): Optional&lt;Deuda&gt;
++obtenerTodasDeudas(): List&lt;Deuda&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>270</y>
+      <w>132</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>com.chat::ChatBootApplication
+--
+-chatService: ChatService
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>360</y>
+      <w>150</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+com.chat.repository::ChatRepository
+--
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
